@@ -1,0 +1,84 @@
+#body {
+    background: #392F5A;
+    margin: 0 0 0 0;
+}
+
+#countdown-machine {
+    position: absolute;
+    font-size: 1.8rem;
+    color: white;
+    font-family: sans-serif;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+}
+
+@media (min-width: 700px) {
+    #countdown-machine {
+        width: 600px;
+    }
+}
+
+.duration {
+    word-spacing: 10px;
+}
+
+#counter-pad {
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px black
+}
+
+#always-clickable:hover {
+    opacity: 0.9
+}
+
+#always-clickable:active {
+    transform: scale(0.98)
+}
+
+.cursor-play {
+    cursor: pointer;
+}
+
+button {
+    background: transparent;
+    all: unset;
+}
+
+.cursor-play:hover {
+    opacity: 0.9;
+}
+
+.cursor-play:active {
+    transform: scale(0.98)
+}
+
+.disable-on-play {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pause-cursor {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pause-enabled:hover {
+    opacity: 0.9;
+}
+
+.pause-enabled:active {
+    transform: scale(0.98)
+}
+
+.disable-on-pause {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.arrows-control {
+    cursor: not-allowed;
+    opacity: 0.5
+}
