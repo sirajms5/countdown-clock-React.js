@@ -1,5 +1,4 @@
-// try component did mount with minutes and seconds remaining to find out break/session change after 0000
-
+// this java script will be using react.js to create a countdown clock
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -53,9 +52,7 @@ class App extends React.Component {
                     power: "On"
                 })
             }
-        } //else {
-        //alert("Cannot set break bellow 1 minute")
-        //}
+        }
         clearInterval(this.loop);
     }
 
@@ -76,9 +73,7 @@ class App extends React.Component {
                     power: "On"
                 });
             }
-        } //else {
-        //alert("Cannot set break above 60 minutes")
-        // }
+        }
         clearInterval(this.loop);
     }
 
@@ -106,9 +101,6 @@ class App extends React.Component {
         }
         clearInterval(this.loop);
     }
-    //else {
-    //alert("Cannot set session bellow 1 minute")
-    //}
 
     handleSessionInc = () => {
         if (this.state.session < 60) {
@@ -131,15 +123,12 @@ class App extends React.Component {
                     power: "On"
                 });
             }
-        } //else {
-        //alert("Cannot set session above 60 minutes")
-        // }
+        }
 
         clearInterval(this.loop);
     }
 
     handleStart = () => {
-
         $(".on-play").prop("disabled", true);
         $(".cursor-play").addClass("disable-on-play");
         $(".disable-on-play").removeClass("cursor-play");
@@ -150,19 +139,15 @@ class App extends React.Component {
         $(".fa-arrow-down").addClass("arrows-control");
         $(".fa-arrow-up").prop("disabled", true);
         $(".fa-arrow-up").addClass("arrows-control");
-
         this.setState({
             pauseClass: "enabled"
         })
 
         this.state.requiredDate = (this.state.desiredMinutes * this.state.startSessionHandle) + (this.state.loopedDesiredTime * this.state.loopSessionHandle);
-
         this.state.requiredBreakDate = (this.state.desiredBreakMinutes * this.state.startBreakHandle) + (this.state.loopedDesiredBreakMinutes * this.state.loopBreakHandle);
-
         if (this.state.power == "On") {
             this.loop = setInterval(() => {
                 if (this.state.label == "Break") {
-
                     let BreakminutesRemaining = Math.floor((this.state.requiredBreakDate - 1) / 60);
                     let BreaksecondsRemaining = Math.floor((this.state.requiredBreakDate - 1) % 60);
                     this.setState({
@@ -218,7 +203,6 @@ class App extends React.Component {
     }
 
     handlePause = () => {
-
         $(".on-play").prop("disabled", false);
         $(".disable-on-play").addClass("cursor-play")
         $(".cursor-play").removeClass("disable-on-play");
@@ -228,8 +212,6 @@ class App extends React.Component {
         $(".fa-arrow-down").addClass("arrows-control");
         $(".fa-arrow-up").prop("disabled", true);
         $(".fa-arrow-up").addClass("arrows-control");
-
-
         if (this.state.power = "Off") {
             clearInterval(this.loop);
             this.setState({
@@ -242,7 +224,6 @@ class App extends React.Component {
     }
 
     handleRefresh = () => {
-
         $(".on-play").prop("disabled", false);
         $(".disable-on-play").addClass("cursor-play")
         $(".cursor-play").removeClass("disable-on-play");
@@ -252,7 +233,6 @@ class App extends React.Component {
         $(".fa-arrow-down").removeClass("arrows-control");
         $(".fa-arrow-up").prop("disabled", false);
         $(".fa-arrow-up").removeClass("arrows-control");
-
         this.setState({
             addedMinutes: undefined,
             minutes: 25,
@@ -283,7 +263,6 @@ class App extends React.Component {
     }
 
     render() {
-
         if (this.state.pauseClass == "disabled") {
             $("document").ready(() => {
                 $(".fa-pause").prop("disabled", true)
@@ -295,6 +274,7 @@ class App extends React.Component {
         } else {
             $("#time-left").css("color", "white");
         }
+
         return (
             <div>
                 <h1 class="text-center">
